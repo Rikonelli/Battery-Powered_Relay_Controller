@@ -4,6 +4,9 @@
 
 A power-efficient relay controller system with battery monitoring and configurable switching intervals.
 
+> [!CAUTION]
+> Working with high voltage is dangerous. Always follow local laws and regulations regarding high voltage work. If you are unsure about the rules in your country, consult a licensed electrician for more information.
+
 ## ✨ Features
 
 ### Hardware
