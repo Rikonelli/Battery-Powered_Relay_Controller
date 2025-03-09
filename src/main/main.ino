@@ -14,7 +14,7 @@ const int BATTERY_PIN = A0;
 
 const unsigned long LONG_PRESS_DURATION = 2000;
 const unsigned long BLINK_INTERVAL = 200;
-const float LOW_BATTERY_THRESHOLD = 4.5;
+const float LOW_BATTERY_THRESHOLD = 3.3;
 const float REFERENCE_VOLTAGE = 5.0;
 const float VOLTAGE_DIVIDER_RATIO = 1.0;
 const unsigned long DEBOUNCE_DELAY = 50;
