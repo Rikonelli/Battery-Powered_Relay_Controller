@@ -4,8 +4,6 @@
 
 A power-efficient relay controller system with battery monitoring and configurable switching intervals.
 
-<img src="docs/block_diagram.png" alt="System Overview" width="600"/>
-
 ## ✨ Features
 
 ### Hardware
@@ -36,7 +34,7 @@ A power-efficient relay controller system with battery monitoring and configurab
 
 ## 📐 Schematic
 
-![Connection Diagram](docs/schematic.png)
+[Connection Diagram](docs/schematic.pdf)
 
 **Key Connections:**
 BAT+ → TP4056 → MT3608 → Arduino 5V  
