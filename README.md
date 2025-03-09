@@ -28,7 +28,7 @@ A power-efficient relay controller system with battery monitoring and configurab
 | Arduino Uno | ATmega328P 16MHz | 1 |
 | TP4056 Module | USB-C 1A | 1 |
 | MT3608 Boost Converter | 2A Output | 1 |
-| 5V Relay Module | 10A SPDT | 1 |
+| 5V Relay Module | SRD-05VDC-SL-C SONGLE 10A | 1 |
 | 18650 Battery | 3.7V 2600mAh | 1 |
 | Tactile Switch | 6x6mm | 1 |
 
