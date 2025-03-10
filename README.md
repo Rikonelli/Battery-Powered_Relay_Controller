@@ -113,6 +113,19 @@ void enterSleepMode() {
 | Wakeup Time      | <50ms           |
 | Battery Life     | ~60 days (2600mAh) |
 
+## 🚀 Future Development Note
+
+Due to time constraints, this prototype focuses on core functionality. Potential improvements include:
+
+- Additional capacitor filtering for power stabilization  
+- Overvoltage protection circuits (TVS diode, varistor)  
+- Transistor-optimized relay energy management  
+- Temperature-compensated battery monitoring  
+- Enhanced EMI suppression in high-voltage sections  
+
+Current implementation omits some engineering best practices - hardware modifications are encouraged!
+
+
 📜 **License**  
 MIT License - See LICENSE for details.
 
