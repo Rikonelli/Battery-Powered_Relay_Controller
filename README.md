@@ -66,7 +66,7 @@ const unsigned long BATTERY_CHECK_INTERVAL = 60000;  // 1 minute
 
 ```
 git clone https://github.com/yourusername/battery-relay-controller.git  
-cd battery-relay-controller/src  
+cd battery-relay-controller/src/main
 # Select Arduino Uno board and correct port  
 # Compile and upload  
 ```
