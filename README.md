@@ -44,7 +44,8 @@ BAT+ → TP4056 → MT3608 → Arduino 5V
 BUTTON → D2 (INT0)  
 LED → D4 (220Ω resistor)  
 RELAY → D7 (Transistor driver)  
-VOLTAGE SENSOR (OPTIONAL, NOT USED IN THE PROTOTYPE) → A0 (R1=10kΩ, R2=10kΩ)
+VOLTAGE SENSOR → A0 (Direct BAT+ connection, no divider used in prototype)  
+*Note: For safe operation with batteries of higher voltage, consider adding a voltage divider to prevent ADC overvoltage.*
 
 ## ⚙️ Firmware Configuration
 
