@@ -126,6 +126,52 @@ Due to time constraints, this prototype focuses on core functionality. Potential
 
 Current implementation omits some engineering best practices - hardware modifications are encouraged!
 
+## 📌 Use Cases – Real-World Applications
+
+This battery-powered relay controller is designed for **low-power, remote, and automated switching applications**.  
+Its ability to operate efficiently on a single **18650 Li-ion battery** and enter **ultra-low power sleep mode** makes it suitable for various use cases, including:
+
+### 🌱 Smart Irrigation Systems
+- 🔹 Automates water pumps or solenoid valves based on soil moisture sensors.  
+- 🔹 Operates in remote locations without constant power availability.  
+- 🔹 Saves energy by running only when necessary and using deep sleep mode.  
+
+### 💡 Remote Lighting Control
+- 🔹 Controls LED or outdoor lighting without requiring a wired switch.  
+- 🔹 Can be integrated with light or motion sensors for automation.  
+- 🔹 Works well in gardens, pathways, or security lighting setups.  
+
+### 🔐 Battery-Powered Access Control
+- 🔹 Can trigger an **electromagnetic lock or gate mechanism** without a wired controller.  
+- 🔹 Useful in warehouses, garages, or remote gates.  
+- 🔹 Can be combined with RFID or keypad access for standalone security.  
+
+### ⚡ Backup Power Switching
+- 🔹 Automatically toggles between **grid power and battery backup** in case of failures.  
+- 🔹 Useful for low-power devices that need redundancy, like sensors or monitoring equipment.  
+
+### 🛰️ Remote Sensor Node Control (IoT Applications)
+- 🔹 Acts as a relay node in **LoRa/ZigBee/NB-IoT** sensor networks.  
+- 🔹 Can turn on/off **remote monitoring equipment** to save power.  
+- 🔹 Works in **weather stations, industrial monitoring, or wildlife tracking systems.**  
+
+---
+
+## 📌 Why a Battery-Powered Relay Instead of a Smart Plug?
+
+While smart plugs work well in grid-connected environments, this system provides advantages in **off-grid, mobile, and ultra-low-power applications**:
+
+| Feature                  | Battery-Powered Relay   | Smart Plug       |
+|--------------------------|------------------------|------------------|
+| **Power Source**         | Works without mains power | Requires constant 230V |
+| **Energy Efficiency**    | Consumes <1μA in sleep mode | Always draws standby power |
+| **Remote Deployment**    | Can be placed anywhere | Limited to power outlets |
+| **Custom Control**       | Can be modified for sensors, timers, or automation | Fixed functionality |
+
+---
+
+This system can be **easily extended** to include **wireless communication (LoRa, Bluetooth, ESP-NOW)** or **sensor-based automation**, making it a versatile solution for **energy-efficient control of electronic devices**.
+
 
 📜 **License**  
 MIT License - See LICENSE for details.
