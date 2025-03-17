@@ -39,7 +39,7 @@ volatile bool ledBlinkState = false;
 
 void setup() {
   Serial.begin(9600);
-  Serial.println(F("Battery-powered Relay Controller - Optimized"));
+  Serial.println(F("Battery-powered Relay Controller"));
 
   // Disable unused peripherals to save power
   power_adc_disable();
@@ -131,7 +131,6 @@ void loop() {
 }
 
 void buttonInterrupt() {
-  bool wasAsleep = !deviceState && !buttonPressed;
   wakeFlag = true;
 
   unsigned long currentTime = millis();
@@ -262,13 +261,22 @@ void handleLowBatteryIndication() {
 }
 
 void configureWatchdog() {
+  // Clears the WDRF (Watchdog Reset Flag) in MCUSR register
+  // to prevent an infinite loop of resets
   MCUSR &= ~(1 << WDRF);
+  
+  // Sets WDCE (Watchdog Change Enable) and WDE (Watchdog Enable)
+  // to allow changing watchdog settings within 4 clock cycles
   WDTCSR |= (1 << WDCE) | (1 << WDE);
+  
+  // Configures Watchdog Timer:
+  // WDIE: enables watchdog interrupt instead of reset
+  // WDP2 | WDP1: sets timeout to approximately 1 second (0.5s)
   WDTCSR = (1 << WDIE) | (1 << WDP2) | (1 << WDP1);
 }
 
 ISR(WDT_vect) {
-  // Watchdog interrupt handler (empty for now)
+  // Watchdog interrupt handler - TBD per use case and after more testing
 }
 
 void enterSleepMode() {
@@ -276,14 +284,15 @@ void enterSleepMode() {
   Serial.flush();
   Serial.end();
   
-  ADCSRA &= ~(1 << ADEN);
-  
-  attachInterrupt(digitalPinToInterrupt(PUSH_BUTTON_PIN), buttonInterrupt, CHANGE);
-  
   set_sleep_mode(SLEEP_MODE_PWR_DOWN);
   sleep_enable();
   
+  // Enables Brown-Out Detection Disable (BODS) and Brown-Out Detection Sampling Enable (BODSE)
+  // Prepares to disable Brown-Out Detection during sleep mode to save power
   MCUCR |= (1 << BODS) | (1 << BODSE);
+  
+  // Clears BODSE while keeping BODS active, which disables Brown-Out Detection to save power
+  // This sequence must be executed within 4 clock cycles of the previous instruction
   MCUCR &= ~(1 << BODSE);
   
   cli();
@@ -293,9 +302,10 @@ void enterSleepMode() {
   sleep_cpu();
   
   sleep_disable();
-  ADCSRA |= (1 << ADEN);
+  //ADCSRA |= (1 << ADEN);  //turning ADC off using bit manipulation, leaving it here just in case one wants to use the basic option at some point; same is achieved by power_adc_disable();
   Serial.begin(9600);
   delay(50);
   
   Serial.println(F("Woke up from sleep"));
   wakeFlag = true;
+}
